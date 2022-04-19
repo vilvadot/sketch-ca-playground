@@ -1,3 +1,5 @@
+// This test suite comes from the implementation of the Graph I did independently. So you will have to hook it up to a test runner manually. Serves as documentation here.
+
 import { Graph } from './Graph.js'
 
 export class TestNode {
@@ -65,5 +67,3 @@ describe('Graph', () => {
         expect(result).toEqual(`A -> B,C\nC -> B\n`)
     })
 })
-
-// TODO: Print this graph using P5 or D3
