@@ -25,7 +25,6 @@ export class Cell {
         this.nextState = initialState
         this.rules = rules;
         this.graphic = graphic
-        this.graphic.click(this.click)
     }
 
     evolve(neighbourhood) {
@@ -35,11 +34,9 @@ export class Cell {
     update() {
         this.state = this.nextState
         const color = COLORS[this.state]
-        return this.graphic.fill(color)
-    }
-
-    click = () => {
-        console.log("Clicked on", this.id)
+        this.graphic.fill(color)
+        this.graphic.y(this.y + Math.abs((Math.random() * 3)))
+        this.graphic.x(this.x + Math.abs((Math.random() * 3)))
     }
 
     isAlive() {
@@ -48,13 +45,5 @@ export class Cell {
 
     isDead() {
         return this.state === STATES.DEAD || this.state === STATES.WARM
-    }
-
-    setDomCounterpart(element) {
-        this.dom = element;
-    }
-
-    getState() {
-        return this.state
     }
 }
